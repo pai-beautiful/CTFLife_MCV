@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CTFLife签单标准化流程（MCV Case）</title>
+  <style>
+    body {
+    font-family: "Segoe UI", sans-serif;
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+    background: #e0f2f1; /* 浅青色背景 */
+    color: #004d40; /* 深青色字体 */
+    }
+
+    h1 {
+    text-align: center;
+    color: #00796b;
+    font-size: 28px;
+    }
+
+    h2 {
+    border-left: 5px solid #4db6ac;
+    padding-left: 10px;
+    color: #00796b;
+    font-size: 20px;
+    }
+
+    .section {
+    margin-top: 30px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 121, 107, 0.1); /* 青色阴影 */
+    }
+
+    .progress-container {
+    background-color: #b2dfdb;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 20px;
+    margin-bottom: 15px;
+    }
+
+    .progress-bar {
+    height: 100%;
+    background-color: #4db6ac;
+    width: 0%;
+    transition: width 0.3s ease;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    line-height: 20px;
+    }
+
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      overflow-x: auto;
+      display: block;
+    }
+    
+    th, td {
+      padding: 12px;
+      border: 1px solid #c8e6c9;
+      text-align: left;
+      word-break: break-word;
+    }
+    
+    th {
+    background-color: #b2dfdb;
+    }
+
+    a {
+    color: #00796b;
+    text-decoration: none;
+    }
+    a:hover {
+    text-decoration: underline;
+    }
+
+    input[type="text"] {
+    padding: 6px;
+    margin-top: 5px;
+    width: 60%;
+    border: 1px solid #80cbc4;
+    border-radius: 4px;
+    }
+
+    button {
+    margin-top: 5px;
+    padding: 6px 12px;
+    border: none;
+    background-color: #4db6ac;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    }
+    button:hover {
+    background-color: #00796b;
+    }
+
+    .submit-btn {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 14px 32px;
+    background-color: #00897b;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background 0.3s ease;
+    }
+    .submit-btn:hover {
+    background-color: #004d40;
+    }
+
+    .highlight {
+    background: #e0f2f1;
+    font-weight: bold;
+    color: #004d40;
+    }
+    
+    
+    @media (max-width: 600px) {
+      table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+      .submit-btn {
+        width: 100%;
+        font-size: 18px;
+      }
+      .password-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        margin-top: 8px;
+        flex-wrap: wrap;
+      }
+      
+      .password-row input[type="text"] {
+        flex: 1;
+        min-width: 150px;
+        padding: 8px;
+        border: 1px solid #a5d6a7;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+      
+      .password-row button {
+        padding: 8px 16px;
+        font-size: 16px;
+        background-color: #66bb6a;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      
+      .password-row button:hover {
+        background-color: #4caf50;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+
+
+  <h1>CTFLife签单标准化流程（MCV Case）</h1>
+
+  <div class="section">
+    <h2>📊 完成进度</h2>
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar">0%</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🧾 证件（准备材料）</h2>
+    <ul>
+      <li>内地身份证</li>
+      <li>港澳通行证</li>
+      <li>入境纸</li>
+      <li>户口本（如需）</li>
+      <li>护照（如需）</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📎 文件列表（可下载）</h2>
+    <table>
+      <thead>
+        <tr><th>事项</th><th>文件</th><th>是否完成</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>嘉信隐私协议（两份）</td><td><a href="嘉信服务协议.pdf" download>下载</a></td><td><input type="checkbox" class="item"></td></tr>
+        <tr><td>嘉信服务协议（两份）</td><td><a href="嘉信私隐政策声明250325.pdf" download>下载</a></td><td><input type="checkbox" class="item"></td></tr>
+        <tr class="highlight"><td colspan="2">🔶 MCV认证（不需要ipad认证，有入境纸即可）</td><td><input type="checkbox" class="item"></td></tr>
+        <tr><td>人寿保险申请书</td><td><a href="Life Insurance Application Form_LU0241_2501.pdf" download>下载</a></td><td><input type="checkbox" class="item"></td></tr>
+        <tr><td>FNA</td><td><a href="Financial Needs Analysis (FNA)_LU0330_2407.pdf" download>下载</a></td><td><input type="checkbox" class="item"></td></tr>
+        <tr><td>转保声明</td><td><a href="Replacement Declaration_LU020601_2407.pdf" download>下载</a></td><td><input type="checkbox" class="item"></td></tr>
+        <tr><td>重要资料声明书——内地人士在港投购人身/寿险保单</td><td><a href="重要资料声明书– 内地人士在港投购人身  寿险保单_LU0298_2407.pdf" download>下载</a></td><td><input type="checkbox" class="item"></td></tr>
+        <tr><td>中华人民共和国附录（“本附录”）</td><td><a href="PIPL_PRC_CS0102_2501.pdf" download>下载</a></td><td><input type="checkbox" class="item"></td></tr>
+        <tr><td>银行户口直接付款授权书（如需）</td><td><a href="Direct Debit Authorization_LS000501_2407.pdf" download>下载</a></td><td><input type="checkbox" class="item"></td></tr>
+        <tr><td>信用卡直接付款授权书</td><td><a href="Credit Card Direct Debit Authorization_CS001001_IFA_2407.pdf" download>下载</a></td><td><input type="checkbox" class="item"></td></tr>
+        <tr><td>营业代表报告</td><td><a href="Broker’s Report_LU022901_2407.pdf" download>下载</a></td><td><input type="checkbox" class="item"></td></tr>
+        <tr><td>缴费入数纸（如需）</td><td><a href="Payment Form_LR0029_2501.pdf" download>下载</a></td><td><input type="checkbox" class="item"></td></tr>
+        <tr><td>预缴单（如需）</td><td><a href="CTF_Life_MyWealth_2_Premier_-_Prepayment_with_Prem_Refund_and_Levy_(31_May_to_30_Jun_2025)(1).xlsm" download>下载</a></td><td><input type="checkbox" class="item"></td></tr>
+        <tr><td>保险服务补充声明书（只适用于保单缮发）</td><td><a href="Supplementary Statement Form for Policy Services (only applicable after policy issuance)_CS0065_2407.pdf" download>下载</a></td><td><input type="checkbox" class="item"></td></tr>
+        <tr><td>大额付款/第三者付款声明书（</td><td><a href="Large Amount or Third Party Payment Declaration Form_CS0088_2505.pdf" download>下载</a></td><td><input type="checkbox" class="item"></td></tr>
+        <tr><td>重要资料声明书——转保（如需）</td><td><a href="Important Facts Statement - Policy Replacement_LU0328_2407.pdf" download>下载</a></td><td><input type="checkbox" class="item"></td></tr>
+        <tr><td>保险补充声明书（适用于「迎尚」保障相连保险计划）（如需）</td><td><a href="Supplementary Statement Form for Income Annuity Plan_LU0310_2407 (1).pdf" download>下载</a></td><td><input type="checkbox" class="item"></td></tr>
+        <tr><td colspan="2">建议书摘要</td><td><input type="checkbox" class="item"></td></tr>
+        <tr><td colspan="2">投保人/受保人身份资料复印件</td><td><input type="checkbox" class="item"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>🔐 CTFLife建议书系统登录信息</h2>
+    <table>
+      <tr><th>公司</th><td>CTFLife</td></tr>
+      <tr><th>系统</th><td>B.O.S.S</td></tr>
+      <tr><th>登录账号</th><td><code>IFA-0449733</code></td></tr>
+      <tr><th>登录网址</th><td><a href="https://econsult.ctflife.com.hk/sss/web/main/login.jsp" target="_blank">点击进入系统</a></td></tr>
+      <!-- 建议书系统 -->
+      <tr>
+        <th>密码</th>
+        <td>
+          <span id="proposalPassword">••••••••</span>
+          <div class="password-row">
+            <input type="text" id="proposalInput" placeholder="请输入密码">
+            <button onclick="revealProposalPassword()">确认</button>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+
+
+  <div class="section" style="text-align: center;">
+    <button class="submit-btn" onclick="submitChecklist()">✅ 提交 </button>
+  </div>
+  
+  <script>
+    const checkboxes = document.querySelectorAll('.item');
+    const progressBar = document.getElementById('progressBar');
+
+    function updateProgress() {
+      const total = checkboxes.length;
+      const checked = [...checkboxes].filter(cb => cb.checked).length;
+      const percent = Math.round((checked / total) * 100);
+      progressBar.style.width = percent + '%';
+      progressBar.textContent = percent + '%';
+    }
+
+    checkboxes.forEach(cb => cb.addEventListener('change', updateProgress));
+    updateProgress();
+
+    function revealProposalPassword() {
+      const input = document.getElementById('proposalInput').value.trim().toLowerCase();
+      const passwordSpan = document.getElementById('proposalPassword');
+      const allowed = ['cathy', 'zoey', 'mandy','queenie'];
+      if (allowed.includes(input)) {
+        passwordSpan.textContent = 'Kaiser2025';
+      } else {
+        alert('不正确，无法查看密码。');
+      }
+    }
+    
+    
+    function submitChecklist() {
+      const incomplete = [...checkboxes].some(cb => !cb.checked);
+      if (incomplete) {
+        alert("❌ 尚有未完成项，无法提交！");
+      } else {
+        alert("✅ 提交成功！");
+        // 在这里可以加入真正的提交逻辑，如表单提交或跳转
+      }
+    }
+
+    checkboxes.forEach(cb => cb.addEventListener('change', updateProgress));
+    updateProgress();
+  </script>
+</body>
+</html>
